@@ -1,0 +1,66 @@
+﻿MVC in 3 Minutes
+=======================
+
+MVC
+Designed in 1970s
+Widely adopted in web
+ASP.NET MVC, Ruby on Rails, Express
+
+Model
+	Application data and behavior in terms of problem domain independent of UI
+		Moves
+		Customer
+		Rental
+		Transaction
+			App state and Rules
+
+	Can take class and use them in other app
+	POCOS
+
+View
+	The HTML that is sent to the user
+
+Controller
+	Responsible for handling an HTTP Request
+
+Vidly.com
+	http://vidly.com/movies
+		Controller selected to handle request
+			Get movies in Model and return in View
+
+Better separation of concerns and more maintainable application
+
+Router
+	Selects the right controller to handle a request
+
+vidly.com/movies -> Router -> Controller (MoviesController)
+	Method of control is an action
+
+An action in controller is responsible to handle a request
+
+Plugins
+	Tools - Extensions and Updates
+		Online
+			Visual Studio Productivity Power Tools (Extension bring in features)
+			Web Essentials
+			ReSharper (Optional) Highly Recommended
+
+MVC in Action
+==================
+
+1. Create your model first, Movie for example
+	just a poco, w/ no logic at first
+Lets say we want to Create page - /movies/random and show movie title
+2. Create controller for Movies with method called Random
+	Called MoviesController
+	Have Random() return View(movie);
+3. Create a View in Movies directory of Views folder
+	called Random
+4. Write C# code via @ to display name of movie
+	Need to add @model directive at top of page
+		because @Model is a dynamic type and compiler needs to be
+		told what type is being used
+		so... @model MVCReview.Movie
+		then to use in HTML @Model.Name
+
+
