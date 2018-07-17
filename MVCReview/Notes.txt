@@ -63,4 +63,44 @@ Lets say we want to Create page - /movies/random and show movie title
 		so... @model MVCReview.Movie
 		then to use in HTML @Model.Name
 
+ASP.NET MVC Fundamentals
+============================
+
+Action Results - output of our actions
+---------------------------------------
+** - most commonly used
+Type						Helper Method from Controller
+**ViewResult						View()
+PartialViewResult				PartialView()
+ContentResult					Content() - simple text
+**RedirectResult					Redirect() - to another route
+**RedirectToRouteResult			RedirectToAction()
+JsonResult						Json() - josn object
+FileResult						File()
+**HttpNotFoundResult				HttpNotFound() - returns 404
+EmptyResult						(no helper method) if you need to return void
+
+Action Parameters - input for our actions
+--------------------------------------------
+
+Parameter Binding
+
+Request -> MVC Framework -> Action
+	When request comes in MVC Framework automatically creates parameter objects
+	for our actions.
+	If action method takes a parameter, it looks for a parameter in the request data
+	if so, automatically passed
+
+Parameter Sources
+	- In the URL: /movies/edit/1
+	- In the query string: /movies/edit?id=1
+	- In the form data: id=1
+
+Convention Based Routes
+---------------------------
+
+Sometimes you might want to use a Custom Route like
+	/movies/released/2015/04
+		you can't get two parameters from the default RouteConfig
+			so you have to create your own custom route
 

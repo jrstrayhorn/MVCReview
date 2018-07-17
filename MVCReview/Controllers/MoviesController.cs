@@ -16,6 +16,28 @@ namespace MVCReview.Controllers
             var movie = new Movie() { Name = "Shrek!" };
 
             return View(movie);
+            //return Content("Hello World!");
+            //return HttpNotFound();
+            // empty result
+            //return new EmptyResult();
+            //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return Content($"id={id}");
+        }
+
+        // movies
+        public ActionResult Index(int? pageIndex, string sortBy)
+        {
+            if (!pageIndex.HasValue)
+                pageIndex = 1;
+
+            if (String.IsNullOrWhiteSpace(sortBy))
+                sortBy = "Name";
+
+            return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
         }
     }
 }
