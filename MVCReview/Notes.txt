@@ -104,3 +104,67 @@ Sometimes you might want to use a Custom Route like
 		you can't get two parameters from the default RouteConfig
 			so you have to create your own custom route
 
+Attribute Routing
+---------------------------
+This is the newer, better way to implement custom routing
+
+Need to enable in RouteConfig.cs
+	routes.MapMvcAttributeRoutes();
+
+Then add attribute to method in controller
+	[Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
+
+Other Constraints besides regex and range (all are functions)
+	min
+	max
+	minlength
+	maxlength
+	int
+	float
+	guid
+
+Google - ASP.NET MVC Attribute Route Constraints
+
+Looked at
+	Controllers
+	Routes
+	now Views
+
+View Models
+-----------------------------
+
+Right now just showing the name of a movie, but what if we also wanted to show
+the name of customers that have rented the movie
+
+In domain model there may not be a relationship between movie and customers class
+so we'd have to pass two different models one with movie and another with list of
+customers
+
+but in the View we only have 1 model property @Model
+
+we solve this with a viewmodel
+
+a viewmodel is a model built specifically for that view with data
+and any logic regarding that view
+
+Models folder is purely for domain classes like Movie, Customer, etc
+
+put viewModels in a separate folder
+
+
+Razor Views
+---------------------------
+
+
+Partial Views
+---------------------------
+In _Layout.cshtml - @RenderBody() will render what ever we have in our partial views
+
+kind of like master page in web forms
+
+To use a partial view in another view,
+optionally you can pass a model to the partial view
+by default it will automatically pass any @model set in parent layout
+but if you need to only pass specific models you can do so with 
+2nd parameter
+	@Html.Partial("_NavBar", Model.Movie)

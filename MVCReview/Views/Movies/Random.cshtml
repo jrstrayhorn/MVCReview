@@ -1,9 +1,42 @@
-﻿@model MVCReview.Models.Movie
+﻿@*@model MVCReview.Models.Movie*@
+@model MVCReview.ViewModels.RandomMovieViewModel
+
+@*@using MVCReview.Models*@
 
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*
+    This is a comment
+    on multiple lines
+*@
+@{ 
+    var className = Model.Customers.Count > 0 ? "popular" : null;
+}
 
-<h2>@Model.Name</h2>
 
+<h2 class="@className">@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rented this movie before.</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
+
+@*have to use this way when using ViewData
+    but this is fragile because of the magic string
+    this is the very old way of passing data
+    Dont use either of the ones below
+*@
+@*<h2>@( ((Movie)ViewData["Movie"]).Name )</h2>
+
+    <h2>@ViewBag.Movie.Name</h2>*@
