@@ -217,6 +217,18 @@
     <Compile Include="Migrations\201807251125049_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>201807251125049_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807311116237_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\201807311116237_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>201807311116237_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807311123051_UpdateExistingMembershipTypesName.cs" />
+    <Compile Include="Migrations\201807311123051_UpdateExistingMembershipTypesName.Designer.cs">
+      <DependentUpon>201807311123051_UpdateExistingMembershipTypesName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807311145399_SetNameInMembershipTypeToRequired.cs" />
+    <Compile Include="Migrations\201807311145399_SetNameInMembershipTypeToRequired.Designer.cs">
+      <DependentUpon>201807311145399_SetNameInMembershipTypeToRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -324,6 +336,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807251125049_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>201807251125049_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311116237_AddNameToMembershipType.resx">
+      <DependentUpon>201807311116237_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311123051_UpdateExistingMembershipTypesName.resx">
+      <DependentUpon>201807311123051_UpdateExistingMembershipTypesName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311145399_SetNameInMembershipTypeToRequired.resx">
+      <DependentUpon>201807311145399_SetNameInMembershipTypeToRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
