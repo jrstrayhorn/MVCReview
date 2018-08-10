@@ -33,6 +33,14 @@ namespace MVCReview.Controllers
             return View(viewModel);
         }
 
+        // MVC framework automatically binds form data
+        // to the parameter of HttpPost Action
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            return View();
+        }
+
         // GET: Customers
         public ActionResult Index()
         {
