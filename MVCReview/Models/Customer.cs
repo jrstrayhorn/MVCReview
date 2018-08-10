@@ -18,6 +18,8 @@ namespace MVCReview.Models
         public MembershipType MembershipType { get; set; }
         // Foreign key
         public byte MembershipTypeId { get; set; }
+
+        [Display(Name = "Date of Birth")]
         public DateTime? Birthdate { get; set; }
     }
 }
