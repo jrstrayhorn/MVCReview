@@ -36,9 +36,26 @@ namespace MVCReview.Controllers
         // MVC framework automatically binds form data
         // to the parameter of HttpPost Action
         [HttpPost]
-        public ActionResult Create(Customer customer)
+        public ActionResult Save(Customer customer)
         {
-            _context.Customers.Add(customer);
+            if (customer.Id == 0)
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+
+                // AutoMapper can also be used to map by 
+                // convention
+                // Mapper.Map(customer, customerInDb);
+                // if you don't want all fields to be updated 
+                // use UpdateCustomerDto as parameter to only update properties
+                // in this Dto
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+            }
+
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Customers");
