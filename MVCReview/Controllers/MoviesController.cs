@@ -114,6 +114,11 @@ namespace MVCReview.Controllers
             return View(movie);
         }
 
+        public ActionResult New()
+        {
+            return View();
+        }
+
         
 
         // attribute routing
