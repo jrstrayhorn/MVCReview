@@ -21,6 +21,8 @@ namespace MVCReview.Models
         public MembershipType MembershipType { get; set; }
 
         // Foreign key
+        // this is implicitly required because type is byte
+        // optional is byte?
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
 
