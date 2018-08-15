@@ -168,3 +168,15 @@ by default it will automatically pass any @model set in parent layout
 but if you need to only pass specific models you can do so with 
 2nd parameter
 	@Html.Partial("_NavBar", Model.Movie)
+
+
+Data Annotations
+---------------------------
+- [Required]
+- [StringLength(255)]
+- [Range(1, 10)]
+- [Compare("OtherProperty")]
+- [Phone]
+EmailAddress
+Url
+RegularExpression
