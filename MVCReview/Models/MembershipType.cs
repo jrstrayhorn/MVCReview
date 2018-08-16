@@ -22,5 +22,13 @@ namespace MVCReview.Models
 
         [Required]
         public string Name { get; set; }
+
+        // making readonly so it can't be changed in code
+        // these are set with the same values as reference
+        // data we setup in the migration to add to database
+        // create these static properties if you need to work
+        // with the reference data in the code
+        public static readonly byte Unknown = 0;
+        public static readonly byte PayAsYouGo = 1;
     }
 }
