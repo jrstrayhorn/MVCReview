@@ -37,6 +37,7 @@ namespace MVCReview.Controllers
         // MVC framework automatically binds form data
         // to the parameter of HttpPost Action
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)
