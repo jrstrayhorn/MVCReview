@@ -180,3 +180,39 @@ Data Annotations
 EmailAddress
 Url
 RegularExpression
+
+RESTful Services
+---------------------------
+
+APIs shouldn't receive domain model objects
+these domain model objects are implementation details
+that could change frequently in our application
+
+these changes could break existing clients
+if rename or remove properties it will break
+
+need to make api contract as stable as possible
+especially becuase its public
+
+to solve this.. need a DTO
+
+DTO is a plain data structure used to transfer data
+from client to server
+
+we reduce chances of breaking our application as
+changes to domain model happen
+
+remember that changing a DTO is costly so plan accordingly
+this would be api versioning
+
+another issue
+
+using a domain model opens up security issues because
+a hacker could add additional properties in the json
+and these properties would be added to the domain model
+
+what if a property shouldn't be updated? a hacker could
+pass that value through... with a DTO you only use the
+properties that are needed
+
+
