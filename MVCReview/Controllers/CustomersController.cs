@@ -76,11 +76,7 @@ namespace MVCReview.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _context.Customers
-                .Include(c => c.MembershipType)
-                .ToList();
-
-            return View(customers);
+            return View();
         }
 
         // GET: Customers/Details/{Id}
