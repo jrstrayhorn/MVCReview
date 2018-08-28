@@ -22,7 +22,7 @@ namespace MVCReview.Dtos
         [Range(1, 20)]
         public int NumberInStock { get; set; }
 
-        //public Genre Genre { get; set; }
+        public GenreDto Genre { get; set; }
 
         [Display(Name = "Genre")]
         [Required]

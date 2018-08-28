@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace MVCReview.Controllers.api
 {
@@ -22,7 +23,12 @@ namespace MVCReview.Controllers.api
         // GET /api/movies
         public IHttpActionResult GetMovies()
         {
-            return Ok(_context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>));
+            IEnumerable<MovieDto> movieDtos = _context.Movies
+                .Include(m => m.Genre)
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
+
+            return Ok(movieDtos);
         }
 
         // GET /api/movies/1
