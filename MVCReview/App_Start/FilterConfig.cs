@@ -7,7 +7,8 @@ namespace MVCReview
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new HandleErrorAttribute());  // redirects user to error page
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }
