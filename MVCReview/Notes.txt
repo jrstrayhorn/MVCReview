@@ -215,4 +215,20 @@ what if a property shouldn't be updated? a hacker could
 pass that value through... with a DTO you only use the
 properties that are needed
 
+ASP.NET Identity in a nut shell
+===================================
+
+Domain Classes
+	IdentityUser
+	Role
+
+API / Service
+	UserManager - managing users
+	RoleManager - managing user roles
+	SignInManager - managing sign in
+
+Persistence (using EF and SQL Database) but can use node or other data stores
+	UserStore
+	RoleStore
+
 
