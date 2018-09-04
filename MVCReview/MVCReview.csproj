@@ -19,7 +19,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -276,6 +276,10 @@
     <Compile Include="Migrations\201809041106325_AddDrivingLicenseToApplicationUser.cs" />
     <Compile Include="Migrations\201809041106325_AddDrivingLicenseToApplicationUser.Designer.cs">
       <DependentUpon>201809041106325_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809041139334_AddPhoneToApplicationUser.cs" />
+    <Compile Include="Migrations\201809041139334_AddPhoneToApplicationUser.Designer.cs">
+      <DependentUpon>201809041139334_AddPhoneToApplicationUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -599,6 +603,9 @@
     <EmbeddedResource Include="Migrations\201809041106325_AddDrivingLicenseToApplicationUser.resx">
       <DependentUpon>201809041106325_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041139334_AddPhoneToApplicationUser.resx">
+      <DependentUpon>201809041139334_AddPhoneToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -618,7 +625,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60734</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60734/</IISUrl>
+          <IISUrl>https://localhost:44340/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

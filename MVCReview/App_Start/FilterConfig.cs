@@ -9,6 +9,7 @@ namespace MVCReview
         {
             filters.Add(new HandleErrorAttribute());  // redirects user to error page
             filters.Add(new AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute()); // application only avaialble on https
         }
     }
 }
