@@ -232,3 +232,22 @@ Persistence (using EF and SQL Database) but can use node or other data stores
 	RoleStore
 
 
+OAuth
+=======================
+Open Authorization
+
+User wants to login into our account
+
+1. we have to register our application with Facebook (partnership) with private key
+2. we redirect user to facebook to login with our secret using https
+3. once facebook login, facebook tells user our application want to use profile data
+4. once authorized, facebook will redirect back to our application with an authorization token
+5. on our account, we pass back the auth token to facebook to verify auth token
+6. then we get an access token to get facebook profile information
+
+don't manaully do this.. baked into ASP.NET Identity
+
+2 steps
+
+1. Enable SSL (for secure communication)
+2. Register our app with Facebook
