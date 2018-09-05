@@ -251,3 +251,98 @@ don't manaully do this.. baked into ASP.NET Identity
 
 1. Enable SSL (for secure communication)
 2. Register our app with Facebook
+
+Performance Optimization
+==============================
+
+Premature optimization is the root of all evils - Donald Knuth - Stanford University
+
+Profile first, THEN optimize!
+
+Three-tier Architecture
+	Data - SQL Server
+	Application - IIS
+	Client - Browser (Frontend)
+
+Most bottlenecks in Data Tier... More Gain.. less results moving up the stack to the Frontend
+
+Mosh's Optimization Rules
+
+- Do not sacrifice the maintainability of your code to premature optimization.
+- Be realistic and think like an "engineer"
+- Be pragmatic and ensure your efforts have obervable results and give value.
+
+Data Tier
+==========
+	Schema (Fix this)
+		Primary keys
+		Relationships
+		Indexes on filter columns
+			EF Code first automatially add primary keys and indexes
+		Entity-Attribute-Value (EAV)
+			Problems with this
+				No O/RMS
+				Long, gigantic queries (by hand)
+				Extremely slow
+	Queries (Fix this)
+		sometimes EF queries aren't the best
+		keep an eye on this.. if they are too complex, just write an optimized query to get results
+		Use Execution Plan in SQL Server (to see how SQL Server calls query and costs)
+		- Create a "read" database (look up CQRS), that is optimized just to read data, tables are pre-joined
+			this approach means you have to sync 2 databases
+		- Use caching - run a slow query, store results in memory
+
+Glimpse
+=========
+	Use Eager Loading, not Lazy Loading.. in web application we should know the data we need to get per request
+		N + 1 issue because of lazy loading
+
+	/glimpse.axd to get to Glimpse end point
+
+	great open source profile tool
+
+
+Application Tier (Middle Tier)
+===============================
+
+Output Caching
+	Slow page, costly query, if data doesnt change often you should cache the output of the page
+		will store rendered HTML in teh cache.. MVC will serve from the cache
+
+	To enable output caching, use [OutputCache] attribute on the controller action or entire controller (action filter)
+		also set a duration in seconds to invalidate the cache
+
+		For a user put a client or everyone on the server
+			Location = OutputCacheLocation.Server,
+
+		VaryByParam - if output changes base don param.. can cache separaly for its param
+
+	Downside of Caching is showing stale data.. where is my new customer?
+
+	Ensure that caching is disabled
+		[OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)]  // disables caching on output
+
+Data Caching
+	Might want to cache data across different actions or controllers
+		like list of roles that don't change that often
+
+	Stay away from dogma arguments
+
+	How to cache in controller
+
+	using System.Runtime.Caching
+
+	if (MemoryCache.Default["Genres"] == null)
+	{
+		// get from database
+		MemoryCache.Default["Genres"] = _context.Genres.ToList();
+	}
+
+	var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+	
+	
+
+
+
+
+
