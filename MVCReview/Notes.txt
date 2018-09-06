@@ -326,7 +326,7 @@ Data Caching
 	Might want to cache data across different actions or controllers
 		like list of roles that don't change that often
 
-	Stay away from dogma arguments
+	Stay away from dogmatic arguments
 
 	How to cache in controller
 
@@ -339,7 +339,74 @@ Data Caching
 	}
 
 	var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+
+Async
+===============
+
+Request -> Thread (has to wait) -> Database (I/O-bound) or Remote service (always a delay)	
+
+lots of concurent users could run out of threads.. so either add more hardware or async/await
+
+with async.. thread no longer waits for Database or remote service call
+	during wait the threads can be used for other users
+
+Better scalability, not performance
+
+IIS (top)
+	async/await - gives us more calls
+
+
+
+	but SQL can still be bottleneck if request goes to one sql server instance and don't have a cluster
+SQL (at bottom)
 	
+	but use SQL cluster, NoSQL or Azure.. this will scale as well
+
+Release Builds (SAFE)
+====================
+	In VS you get build mode, defualt is Debug (add additional info for debugging)
+
+	use the release build when doing deployments
+
+Disabling Session (SAFE)
+====================
+	Session
+		A piece of memory in the web server allocated to each user
+	the more users you have the more memory app uses which kills scalability
+
+	days of session state is GONE
+
+	should be stateless!!! don't maintain state
+
+	in web.config in system.web > <sessionState mode="Off"></sessionState>
+
+	this improves scalability of application
+
+Client Tier Optimizations
+===========================
+2 main principles here
+	1. should reduce requests from client to server
+	2. should reduce size of the response from server/client
+
+Optimization
+	DTO
+		keep lightweight
+		especially if internal, don't return unnecessary properties
+
+	JS
+		combine, compress the results with bundles!!
+			ASP.NET MVC - BundleConfig.cs will combine and compress at run time
+		put scripts at the end of the body section, render markup THEN will load the scripts
+
+	CSS
+		bundle, minify css files
+
+	Image
+		reduce image size
+
+Chrome Developer Tools Tip
+	while debugging and developing an application, check the disable cache checkbox to ensure that
+	requests aren't being cache on machine
 	
 
 
