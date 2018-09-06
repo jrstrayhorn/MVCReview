@@ -408,6 +408,16 @@ Chrome Developer Tools Tip
 	while debugging and developing an application, check the disable cache checkbox to ensure that
 	requests aren't being cache on machine
 	
+IMPORTANT
+=====================
+
+Do not waste enormous amount of time
+optimizing non-critical parts of your application
+
+don't make code complicated and un maintainable for small performance increase
+
+unless it provides value for users
+
 
 
 
