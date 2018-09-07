@@ -419,7 +419,99 @@ don't make code complicated and un maintainable for small performance increase
 unless it provides value for users
 
 
+Building a Feature End-to-End Systematically
+==============================================
 
+1. Understanding the Problem
+	1st step in creating software is understanding what problem you are trying to solve
+	coding without knowing
 
+	Add the ability to record rentals
+		How does this use case work?
 
+	Custom comes to counter give movies to staff member, looks up customer and add to list of movies rent
+	end of transaction
+
+	Approach
+		either start from Front-end / Back-end
+
+	Start from the Back-end (don't worry about front-end UI - might over engineer)
+
+	Input / Output
+	Use Case: New Rental
+	Input: Customer and Movies
+	Output: none
+
+	When building you start with structure and skeleton (not windows, doors, etc)
+	Focus on the big picture 1st
+
+	Action - where? depends on return
+
+	MVC Controller 
+		to return markup
+
+		or 
+		
+	API Controller
+		to return data and generate markup on the client
+		advantage: you can build different frontend to this one api controller
+
+	Exercise
+		Create an API for New Rental use case
+
+2. Domain Modeling
+
+	Does our current domain models support rentaling? No
+
+	Need to do some domain modeling
+
+	Right now, UML Class Diagram (only for understanding the problem domain) - ultimate documentation is code
+
+	Customer					Movie
+		rents > *
+					* < can be rented by
+
+		Many to Many between Customers and Movies
+
+	The assocation need attributes
+		use an assocation class
+			Rental
+				DateRented
+				DateReturned
+				Navigation Customer
+				Navigation Movie
+				Id
+
+3. Build the Simplest API
+	Start with the happy path
+		dont worry about validation
+		or edge cases yet
+
+4. Add the details
+	take into account avaialbility of movie
+	is this in the domain? yes based NumberInStock
+		Availability = NumberInStock - ActiveRentals (rentals with no return dates)
+			have to look up Rental table to get this
+
+		as data grows find unavabile will be costly
+
+		Database schema needs to be on point
+
+		add NumberAvailable in Movie when rented decrease by 1, when return increase by 1
+
+		this is NOT premature optimziation  this improve maintainability and performance!
+			premature optimization makes code unmaintainable because change code structure
+
+5. Work on the Edge Cases
+	What are possible edge cases?
+		- CustomerId is invalid
+		- No MovieIds
+		- One or more MovieIds are invalid
+		- One or more movies are not available
+
+	Defensive vs Optimistic
+	
+6. Build the Front End
+	
+		
 

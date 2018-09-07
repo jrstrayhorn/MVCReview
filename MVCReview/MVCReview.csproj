@@ -221,14 +221,17 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\CustomersController.cs" />
     <Compile Include="Controllers\api\MoviesController.cs" />
+    <Compile Include="Controllers\api\NewRentalsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
+    <Compile Include="Dtos\NewRentalDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -297,6 +300,14 @@
     <Compile Include="Migrations\201809041139334_AddPhoneToApplicationUser.Designer.cs">
       <DependentUpon>201809041139334_AddPhoneToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809071112526_AddingRentals.cs" />
+    <Compile Include="Migrations\201809071112526_AddingRentals.Designer.cs">
+      <DependentUpon>201809071112526_AddingRentals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809071134418_AddNumberAvailableToMoviesTable.cs" />
+    <Compile Include="Migrations\201809071134418_AddNumberAvailableToMoviesTable.Designer.cs">
+      <DependentUpon>201809071134418_AddNumberAvailableToMoviesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -306,6 +317,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -558,6 +570,7 @@
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
     <Content Include="Views\Movies\ReadOnlyList.cshtml" />
+    <Content Include="Views\Rentals\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -623,6 +636,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041139334_AddPhoneToApplicationUser.resx">
       <DependentUpon>201809041139334_AddPhoneToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071112526_AddingRentals.resx">
+      <DependentUpon>201809071112526_AddingRentals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071134418_AddNumberAvailableToMoviesTable.resx">
+      <DependentUpon>201809071134418_AddNumberAvailableToMoviesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
