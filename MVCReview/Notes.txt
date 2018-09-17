@@ -514,4 +514,14 @@ Building a Feature End-to-End Systematically
 6. Build the Front End
 	
 		
-
+Systematic Approach
+	- Understand the problem
+	- Start with the backend
+	- Think of the inputs and the output
+	- Declare a simple API
+	- Extend the domain model (if required) w/ code first migrations
+	- Build the happy path
+	- Add the details one by one
+	- Move on to the front end
+	- Build simplest UI
+	- Then add more UI details as needed
