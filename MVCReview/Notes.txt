@@ -525,3 +525,22 @@ Systematic Approach
 	- Move on to the front end
 	- Build simplest UI
 	- Then add more UI details as needed
+
+
+Deployment
+	Deploying the Database
+		Use Code first migration and then run
+			update-database -script // this will create a sql script that will include all migrations useful for the first time deploying database
+			
+			update-database -script -SourceMigration:SeedUsers // this will create a sql script that will include all migration from certain SourceMigration point forward
+
+			securing configuration settings
+Publish wizard
+	deploy to file system
+	search for visual studio tools
+	developer command propmpt run as administrator
+	encrypt
+		aspnet_regiis -pef "appSettings" "c:/location_of_web_config" -prov "DataProtectionConfigurationProvider" (use RSAProvider and then use certificate to encrypt and decrypt these settings files / do this for connection strings as well)
+	decrypt
+		aspnet_regiis -pdf "appSettings" "c:/location_of_web_config"
+	In real world, create a build script that will do these steps during deployment 
